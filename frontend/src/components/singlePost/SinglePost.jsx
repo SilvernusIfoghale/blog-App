@@ -36,10 +36,15 @@ export default function SinglePost() {
       console.log(err);
     }
   };
+  // 669ea1c2edac468aedb6c8fa
+  // 669ea1c2edac468aedb6c8fa
   const handleUpdate = async () => {
     try {
+      console.log(post.author); // '669ea1c2edac468aedb6c8fa'
+      console.log(post._id); //'669ea261edac468aedb6c99e'
+      console.log(user._id); // '669ea1c2edac468aedb6c8fa'
       await axios.put(`${apiUrl}/api/posts/${post._id}`, {
-        username: user.author.username,
+        username: user._id,
         title,
         desc,
       });

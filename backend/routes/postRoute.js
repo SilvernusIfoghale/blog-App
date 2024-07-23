@@ -39,7 +39,12 @@ postRoute.delete("/:id", async (req, res) => {
 postRoute.put("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.username === req.body.username) {
+    //user._id && post.author
+    console.log(req.params.id); //'669ea261edac468aedb6c99e'
+    console.log(post._id); //'669ea261edac468aedb6c99e'
+    console.log(post.author);
+    console.log(req.body.username); //669ea1c2edac468aedb6c8fa
+    if (post.author == req.body.username) {
       try {
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
